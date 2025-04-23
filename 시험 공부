@@ -53,6 +53,56 @@ iam 역할 및 서비스 연동
 pem: ssh로 쉽게 활용 가능
 ppk: putty에서 사용
 
-s3: 객체 스토리지
-s3특징:
-높은 내구성, 무제한 용량, 글로벌 서비스 단위, 객체 스토리지 서비스, 가용 영역에 데이터 복제, 데이터 저장 활용 용이
+S3버킷 정책
+리소스 기반 정책
+언제 누가 무엇을 어떻게 할수있는가를 정의
+
+"Resource": [
+              "arn:aws:s3:::sgu-202500-s3-test/class/img/*",
+               "arn:aws:s3:::sgu-205233-s3-test/index.html"
+]
+
+"Condition":{
+        "IpAddress": {
+                      "aws:SourceIp": "241242.42414.24124.214"
+}}
+
+{ 
+  "Sid": "DenyGetObject",
+  "Effect": "Deny",
+  "Principal: "*",
+  "Action": "GetObject",
+  "Resouces": "arn:aws:s3:::gddkgsgkgskgskgs"
+}
+
+Scaling: 요청이 많아 질때 서버를 키우는 것
+AutoScaling: 트래픽 상황에 맞춰 서버 수를 자동으로 늘리거나 줄이는 것
+스케일 업: 서버 한대 성능을 높이는 것(vertical scaling)
+장점: 단순하고 설정이 쉬움
+단점: 재시작 필요성, 물리적인 한계, 서버 한대에 의존
+
+스케일 다운: 서버 수를 늘려서 처리 성능을 확장 시키는 것(Horizantal scaling)
+장점: 무중단 확장 가능
+단점: 복잡한 아키텍처, ELB 구성 필요
+
+Auto Scaling 구성요소
+1. launch templete: 설계도
+2. autoscaling group: 인스턴스를 묶어서 관리하는 단위
+3. scaling policy: 언제 어떻게 서버수를 조절할지에 대한 정책
+4. cloud watch: 스케일링 정책을 실행하는 것
+
+ELB: 트래픽 분산 시스템
+특징
+1. 여러 서비스의 트래픽 분산 가능
+2. Health Check
+3. auto scaling 과 연동가능
+4. ip 고정 불가능
+5. 여러 가용역역에 분산 가능
+
+종류
+1. Application Load Balancer: 똑똑하다.
+2. Network Load Balancer: 빠르다
+3. Classic Load Balancer: 옛날
+
+ALB - Target Group
+트래픽을 분산시킬 대상을 논리적으로 묶어놓은 그룹
