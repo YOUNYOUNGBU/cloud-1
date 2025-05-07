@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/0aec3a94-f777-48a1-bf9c-93509c249856)
+
 # Lambda 란?
 AWS Lambda는 Amazon Web Services(AWS)에서 제공하는 서버리스 컴퓨팅 서비스.
 즉, 사용자가 직접 서버를 관리할 필요 없이, 코드를 실행할 수 있는 환경을 제공하는 서비스. 
