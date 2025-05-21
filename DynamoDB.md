@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/158fabe0-27e1-4ebd-8805-4d82fe5761d7)
+![image](https://github.com/user-attachments/assets/bbfda178-6bec-48dc-b3c3-53b7dd63e8bb)
 
 # 1. DynamoDB란?
 (1) 완전관리형 서버리스 NoSQL 데이터베이스.
